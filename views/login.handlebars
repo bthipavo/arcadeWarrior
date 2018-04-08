@@ -1,27 +1,47 @@
-<div class='loginSection'>
-	<form method='post' action='/users/login'>
-		<div class='row'>
-		  	<div class='col s6'>
-		  		<h2 class='page-header'>Account Login</h2>
+<div class='loginSection modal' id='loginModal'>
+	<div class="modal-content">
+		<form method='post' action='/users/login'>
+			<div class='row'>
+			  	<div class='col s6'>
+			  		<h2 class='page-header'>Account Login</h2>
+			  	</div>
 		  	</div>
-	  	</div>
-	  	<div class='row'>
-	  		<div class='input-field col s6'>
-				<i class='material-icons prefix'>account_circle</i>
-				<label class='active' for='username'>USERNAME</label>
-				<input id='username' type='text' class='form-control' name='username'>
+		  	<div class='row'>
+		  		<div class='input-field col s6'>
+					<i class='material-icons prefix'>account_circle</i>
+					<label class='active' for='username'>USERNAME</label>
+					<input id='username' type='text' class='form-control' name='username'>
+				</div>
 			</div>
-		</div>
-		<div class='row'>
-	  		<div class='input-field col s6'>
-				<i class='material-icons prefix'>lock</i>
-				<label class='active' for='password'>PASSWORD</label>
-				<input id='password' type='password' class='form-control' name='password'>
+			<div class='row'>
+		  		<div class='input-field col s6'>
+					<i class='material-icons prefix'>lock</i>
+					<label class='active' for='password'>PASSWORD</label>
+					<input id='password' type='password' class='form-control' name='password'>
+				</div>
 			</div>
-		</div>
-		<button id='loginBtn' type='submit' class='btn waves-effect waves-light cyan lighten-1'>Submit</button>
-	</form>
+			<div id='modalBack' class='modal-footer'>
+				<p id='loginLink'><a href='/users/register'>REGISTER</a></p>
+				<button id='loginBtn' type='submit' class='btn waves-effect waves-light cyan lighten-1 modal-action modal-close'>Submit</button>
+			</div>
+		</form>
+	</div>
 </div>
 
 <div class='footer'></div>
 <div class='banner'></div>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js'></script>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+
+<script>
+    var elem = document.querySelector('.modal');
+  	var instance = M.Modal.init(elem);
+
+  	instance.open()
+
+  	document.getElementById("loginBtn").addEventListener("submit", function() {
+  	instance.close()
+  	});
+</script>

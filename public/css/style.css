@@ -29,34 +29,57 @@
         border-bottom: 7px solid #ffd180;
     }
     
-    #froggerjpg.froggertile {
-        background: url(../img/Frogger.jpg);
+    #froggerjpg {
+        background: url(../img/Frogger.jpg); 
+        border: 7px solid #ffd180;
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
-        height: 300px;
-        border: 7px solid #ffffff;
+        width: 350px;
+        height: 250px;
+        margin-top: 50px;
+        margin-left: 60px;
+        margin-right: 10px;
+    }
+
+    #galagajpg {
+        background: url(../img/spaceInvader.jpg);
+        border: 7px solid #ffd180;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        width: 350px;
+        height: 250px;
+        margin-top: 50px;
+        margin-left: 10px;
+        margin-right: 60px;
     }
     
-    #twitchjpg.froggertile {
+    #twitchjpg{
         background: url(../img/twitch.jpg);
+        border: 7px solid #ffd180;
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
-        height: 300px;
-        border: 7px solid #ffffff;
+        width: 350px;
+        height: 250px;
+        margin-top: 50px;
+        margin-left: 10px;
+        margin-right: 10px;
     }
     
     #mainjpg {
-        background: url(../img/heading.png);
+        background: url(https://i.imgur.com/obojRZ5.gif);
         background-repeat: no-repeat;
         background-position: center;
         background-size: cover;
-        height: 800px;
+        height: 350px;
         border: 7px solid #ffffff;
         box-shadow: 0 15px 35px -6px #222222;
-        max-width: 100%;
-        margin-top: 5px;
+        margin-top: 20px;
+        margin-left: 60px;
+        margin-right: 60px;
+
     }
     
     .loginSection {
@@ -88,7 +111,7 @@
     }
     
     .fluid {
-        padding: 0;
+        padding: 0 !important;
     }
     
     .card-image {
@@ -114,7 +137,7 @@
         font-size: 54px;
         font-family: "PressStart2P.ttf", "8-Bit Madness", fantasy, Arial, sans-serif;
         text-shadow: -3px 2px #ff7d00;
-        margin-top: 8%;
+ /*       margin-top: 8%;*/
     }
     /*carousel styling*/
     
@@ -149,4 +172,52 @@
         color: #ffa726;
         text-align: center;
         text-shadow: 2px 2px #222222;
+    }
+
+   /* LOGIN MODAL
+    ===================*/
+
+    #loginModal {
+        height: 300px;
+    }
+
+    #loginBtn {
+        margin-top: 25px;
+    }
+
+    #password {
+        margin-bottom: 25px;
+    }
+
+    #modalBack {
+        background-color: #fff !important;
+    }
+
+    #loginLink {
+        margin-top: 25px;
+    }
+
+     /* REGISTRATION MODAL
+    =======================*/
+
+    
+     #RegistrationModal {
+        height: 600px;
+    }
+
+    .registerSection {
+        margin-top: 50px;
+        margin-right: 50px;
+    }
+
+/*    .page-header {
+        font-size: 35px;
+    }*/
+
+    #registerBtn {
+        margin-top: 50px;
+    }
+
+     #registerLink {
+        margin-top: 35px;
     }
