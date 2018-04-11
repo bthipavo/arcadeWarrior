@@ -54,6 +54,15 @@
         margin-left: 10px;
         margin-right: 60px;
     }
+
+    #galagajpg.froggertile {
+        background: url(../img/galaga.jpg);
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        height: 300px;
+        border: 7px solid #ffffff;
+    }
     
     #twitchjpg{
         background: url(../img/twitch.jpg);
