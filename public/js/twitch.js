@@ -2,7 +2,6 @@ var channels = ["wedc517", "ninja", "overwatchleague", "riot games", "lck1", "ro
 var streamsOnline = "";
 var streamsOffline = "";
 
-
 $(document).ready(function () {
 
     for (i = 0; i < channels.length; i++) {
