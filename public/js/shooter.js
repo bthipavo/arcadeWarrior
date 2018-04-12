@@ -1,4 +1,4 @@
-const game = new Phaser.Game(1250,570,Phaser.CANVAS,'gameDiv');
+const game = new Phaser.Game(800,600,Phaser.CANVAS,'gameDiv');
 let spacefield;
 let backgroundv;
 let player;
