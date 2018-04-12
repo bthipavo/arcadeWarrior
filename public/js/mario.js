@@ -1,27 +1,22 @@
-
-
+ let gameScene = new Phaser.Scene('Game')
  let config = {
     type: Phaser.AUTO,
     width: 800,
     height: 600,
-    scene: {
-        init: init,
-        preload: preload,
-        create: create,
-        update: update
-    }
+    scene: gameScene
+    
     };
     var cursors
     let game = new Phaser.Game(config);
 
-    function init () {
-        this.playerSpeed = 1
+   gameScene.init = function() {
+        this.playerSpeed = 2
         this.enemySpeed = 2
         this.enemyMaxX = 800
         this.enemyMinX = 0
     }
 
-    function preload ()
+    gameScene.preload = function()
     {
 
         this.load.image('bg', '/img/froggerBG.png');
@@ -36,18 +31,12 @@
         this.load.image('turtle', '/img/turtleShells.png');
     }
 
-    function create ()
+    gameScene.create = function ()
     {
         let background = this.add.sprite(0, 0, 'bg');
         cursors = game.input.keyboard.createCursorKeys()
 
-        var particles = this.add.particles('red');
 
-        var emitter = particles.createEmitter({
-            speed: 100,
-            scale: { start: 1, end: 0 },
-            blendMode: 'ADD'
-        });
 
         background.setOrigin(0, 0);
 
@@ -64,7 +53,6 @@
         // player.setBounce(1, 1);
         // player.setCollideWorldBounds(true);
         //to make the player sparkle
-        emitter.startFollow(this.player);
 
         this.enemies = this.add.group({
             key: 'toad',
@@ -133,28 +121,28 @@
         }, this)
     }
 
-    function runEnemies(car) {
-        this.enemies = this.add.group({
-                key: car,
-                repeat: 2,
-                setXY: {
-                    x: 100,
-                    y: 110,
-                    stepX: 100,
-                    stepY: 390}
-                    })
+    // gameScene.runEnemies = function(car) {
+    //     this.enemies = this.add.group({
+    //             key: car,
+    //             repeat: 2,
+    //             setXY: {
+    //                 x: 100,
+    //                 y: 110,
+    //                 stepX: 100,
+    //                 stepY: 390}
+    //                 })
 
-            // scale enemies
-            Phaser.Actions.ScaleXY(this.enemies.getChildren(), -0.2, -0.2);
+    //         // scale enemies
+    //         Phaser.Actions.ScaleXY(this.enemies.getChildren(), -0.2, -0.2);
 
-            // set speeds
-            Phaser.Actions.Call(this.enemies.getChildren(), function(enemy) {
-            enemy.speed = Math.random() * 2 + 1;
-            }, this)
+    //         // set speeds
+    //         Phaser.Actions.Call(this.enemies.getChildren(), function(enemy) {
+    //         enemy.speed = Math.random() * 2 + 1;
+    //         }, this)
 
-    }
+    // }
 
-    function update () {
+    gameScene.update = function() {
         // console.log("pointer" + this.input.activePointer.isDown)
         if (cursors.up.isDown) {
 
@@ -203,6 +191,10 @@
                 // }, this)
                 enemies[i].x += enemies[i].speed
             }
+            if (Phaser.Geom.Intersects.RectangleToRectangle(this.player.getBounds(), enemies[i].getBounds())) {
+            this.gameOver();
+            
+            }
         }
 
         for (let i = 0; i < numMario; i++) {
@@ -238,4 +230,13 @@
             }
         }
 
+        gameScene.gameOver = function() {
+        console.log("hello")
+        // shake the camera
+          this.time.delayedCall(500, function() {
+            this.scene.manager.bootScene(this);
+        }, [], this);
+        }
+
     }
+
