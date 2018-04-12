@@ -19,19 +19,31 @@
 
   <nav>
     <div class='nav-wrapper grey darken-4'>
-      <a href='#'><img class='arcadeLogo' src='/img/aw_logo.png'> </a>
-      <ul id='nav-mobile' class='right hide-on-sm-and-down'>
+      <a href='#'><img class='arcadeLogo' src='/img/aw_logo.png'></a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <ul id='nav-mobile' class="right hide-on-med-and-down">
         {{#if user}}
-          <li role='presentation'><a href='/'>DASHBOARD</a></li>
-          <li role='presentation'><a href='/users/twitch'>TWITCH</a></li>
-          <li role='presentation'><a href='/users/logout'>LOGOUT</a></li>
+          <li><a href='/'>DASHBOARD</a></li>
+          <li><a href='/users/twitch'>TWITCH</a></li>
+          <li><a href='/users/logout'>LOGOUT</a></li>
         {{else}}
-          <li role='presentation'><a href='/users/login'>LOGIN</a></li>
-          <li role='presentation'><a href='/users/register'>REGISTER</a></li>
+          <li><a href='/users/login'>LOGIN</a></li>
+          <li><a href='/users/register'>REGISTER</a></li>
         {{/if}}
       </ul>
     </div>
   </nav>
+
+   <ul class="sidenav" id="mobile-demo">
+      {{#if user}}
+        <li><a href='/'>DASHBOARD</a></li>
+        <li><a href='/users/twitch'>TWITCH</a></li>
+        <li><a href='/users/logout'>LOGOUT</a></li>
+      {{else}}
+        <li><a href='/users/login'>LOGIN</a></li>
+        <li><a href='/users/register'>REGISTER</a></li>
+      {{/if}}
+  </ul>
 
 
   <div class='row'>

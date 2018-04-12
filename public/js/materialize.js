@@ -1,5 +1,2 @@
- var elem = document.querySelector('.carousel');
-    var instance = M.Carousel.init({
-    fullWidth: true,
-    indicators: true
-  });     
+  var elem = document.querySelector('.sidenav');
+  var instance = M.Sidenav.init(elem);     
