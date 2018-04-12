@@ -1,0 +1,328 @@
+/*@font-face to load 8bit font*/
+
+@font-face {
+    font-family: "PressStart2P.ttf";
+    src: url("../fonts/PressStart2P.ttf") format('truetype');
+}
+
+body {
+    padding-top: 40px;
+    margin: auto;
+    padding-bottom: 40px;
+}
+
+
+/* @media (max-width: 980px) {
+    body {
+        padding-top: 0;
+    }
+} */
+
+
+/*style the font*/
+
+h1 {
+    font-family: "PressStart2P.ttf", Arial, sans-serif;
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    text-shadow: 2px 2px #222222;
+}
+
+h4 {
+    text-align: center;
+    text-shadow: 2px 2px #222222;
+}
+
+
+/*center the start button*/
+
+div#start {
+    display: flex;
+    justify-content: center;
+}
+
+
+/*add 8-bit font*/
+
+html {
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background-image: url(../Images/green.jpg);
+    font-family: "PressStart2P.ttf", Arial, sans-serif;
+    color: #ffffff;
+    text-shadow: 2px 2px #222222;
+    width: 100%;
+    height: 100%;
+}
+
+
+#mybet {
+    font-size: 30px;
+    font-weight: 100;
+    border-radius: 10px;
+    text-align: center;
+    font-family: "PressStart2P.ttf", Arial, sans-serif;
+}
+
+#maxbet {
+    font-family: "PressStart2P.ttf", Arial, sans-serif;
+    color: #ffffff;
+    text-shadow: 2px 3px #222222;
+    border: solid 1px #ffffff;
+}
+
+#btnstart {
+    font-family: "PressStart2P.ttf", Arial, sans-serif;
+    color: #ffffff;
+    text-shadow: 2px 3px #222222;
+    border: solid 1px #ffffff;
+}
+
+#btnstart:hover {
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+#btnhold {
+    font-family: "PressStart2P.ttf", Arial, sans-serif;
+    color: #ffffff;
+    text-shadow: 2px 3px #222222;
+    border: solid 1px #ffffff;
+}
+
+#btnhold:hover {
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+#btnhit {
+    font-family: "PressStart2P.ttf", Arial, sans-serif;
+    color: #ffffff;
+    border-width: thick;
+    text-shadow: 2px 3px #222222;
+    border: solid 1px #ffffff;
+}
+
+#btnhold:hover {
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+#btndouble {
+    font-family: "PressStart2P.ttf", Arial, sans-serif;
+    color: #ffffff;
+    border-width: thick;
+    text-shadow: 2px 3px #222222;
+    border: solid 1px #ffffff;
+}
+
+#btndouble:hover {
+    color: #ffffff;
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+#btndeal:hover {
+    color: #ffffff;
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+#output {
+    font-size: 1.5em;
+    padding: 10px;
+    /* padding-left: 5px;
+    margin-left: 6px;
+    margin-top: 11px; */
+}
+
+#btndeal,
+#myactions {
+    display: none;
+    font-family: "PressStart2P.ttf", Arial, sans-serif;
+    color: #ffffff;
+    text-shadow: 2px 3px #222222;
+}
+
+.btn {
+    border-radius: 5px;
+    padding: 8px 20px;
+    color: white;
+    display: inline-block;
+    text-align: center;
+    text-shadow: 1px 1px #000000;
+    font: normal 700 24px/1 "Calibri", sans-serif;
+}
+
+#cover {
+    height: 160px;
+    width: 120px;
+    background-image: url(../Images/mariobj.png);
+    background-size: 100%;
+    border-radius: 10px;
+    position: absolute;
+    border: 1px solid black;
+    padding: 4px;
+}
+
+element.style {
+    left: 80px;
+}
+
+.icard {
+    height: 160px;
+    width: 120px;
+    padding: 3px;
+    border: 3px solid black;
+    background-color: white;
+    border-radius: 10px;
+    position: absolute;
+    left: 100px;
+    display: inline-block;
+    font-family: 'Lato';
+}
+
+.top-card {
+    font-size: 20px;
+    font-family: "PressStart2P.ttf", Arial, sans-serif;
+    text-shadow: 1px 1px #ffffff;
+    line-height: 20px;
+    left: 2px;
+    top: 2px;
+}
+
+.content-card {
+    text-align: center;
+    font-size: 42px;
+}
+
+.bottom-card {
+    font-size: 20px;
+    font-family: "PressStart2P.ttf", Arial, sans-serif;
+    text-shadow: 1px 1px #ffffff;
+    line-height: 23px;
+    right: 2px;
+    bottom: 2px;
+    transform: rotate(-180deg);
+    -webkit-transform: rotate(-180deg);
+    -moz-transform: rotate(-180deg);
+    -ms-transform: rotate(-180deg);
+    -o-transform: rotate(-180deg);
+}
+
+.clubs,
+.spades {
+    color: black;
+}
+
+.hearts,
+.diams {
+    color: red;
+}
+
+
+/*card suits*/
+
+.hearts .suit::after {
+    content: '\2665';
+}
+
+.diams .suit::after {
+    content: '\2666';
+}
+
+.spades .suit::after {
+    content: '\2660';
+}
+
+.clubs .suit::after {
+    content: '\2663';
+}
+
+#dealerHolder,
+#playerHolder {
+    height: 180px;
+    width: 500px;
+    margin-top: 10px;
+}
+
+#message {
+    height: 90px;
+    color: #ffe919;
+    margin-bottom: 7px;
+    font-size: 30px;
+    text-align: center;
+}
+
+div#message {
+    color: #ffe919 !important;
+}
+
+#btndeal {
+    background-color: #12bdfd;
+    font-size: 25px;
+    border-width: thick !important;
+    border: solid 1px #ffffff;
+    border-radius: 15px;
+}
+
+#btnhold {
+    background-color: green;
+    border-radius: 15px;
+    border-width: thick;
+}
+
+#btnhit {
+    background-color: red;
+    border-radius: 15px;
+    border-width: thick;
+}
+
+#btnhit:hover {
+    color: #ffffff;
+    cursor: pointer;
+    opacity: 0.5;
+    border-width: thick;
+}
+
+#btndouble {
+    background-color: blue;
+    border-radius: 15px;
+    border-width: thick;
+}
+
+#maxbet {
+    background-color: red;
+    border-width: thick;
+    border-radius: 15px;
+    margin-left: 10px;
+    font-size: 15px;
+}
+
+#maxbet:hover {
+    color: #ffffff;
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+#btnstart {
+    background-color: #12bdfd;
+    color: #ffffff;
+    border-width: thick;
+    font-size: 25px;
+    border-radius: 15px;
+    margin-top: 4px;
+}
+
+
+/*total dollars header*/
+
+.total {
+    font-size: 30px;
+    padding: 20px;
+    text-align: center;
+}

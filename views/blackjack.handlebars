@@ -1,0 +1,65 @@
+<body>
+    <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    <div class="container" id="mainDiv">
+
+        <div class="container-fluid justify-content-center">
+
+            <h1>8-Bit BlackJack</h1>
+            <div id="message">Press Start Button
+                <h5>Beat The Dealer!</h5>
+            </div>
+            <div id="start">
+                <button id="btnstart" type="button" onclick="Start()" class="btn">Start Game</button>
+            </div>
+            <div class="total">Total $<span id="dollars">100</span>
+                <br>
+                <br>
+                <p>Bet Amount $<input type="number" id="mybet" value="5" min="1" max="100">
+                    <button id="maxbet" type="button" onclick="maxbet()" class="btn">Max Bet</button></p>
+
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-sm-5" style="float: left; margin: 0 auto;">
+                    <div id="output">
+                        Player Hand : <span id="pValue"></span>
+                        <div id="playerHolder"></div>
+                    </div>
+                </div>
+                <div class="col-sm-5" style="float: right; margin-right: 5px auto;">
+                    <div id="output">
+                        Dealer Hand : <span id="dValue"></span>
+                        <div id="dealerHolder"></div>
+
+                    </div>
+
+
+                </div>
+            </div>
+            <div id="myactions">
+                <button id="btnhold" type="button" onclick="cardAction('hold')" class="btn">Hold</button>
+                <button id="btnhit" type="button" onclick="cardAction('hit')" class="btn">Hit</button>
+                <button id="btndouble" type="button" onclick="cardAction('double')" class="btn">Double</button>
+            </div>
+            <div>
+                <button id="btndeal" type="button" onclick="dealNew()" class="btn">Deal</button>
+            </div>
+
+        </div>
+        <div>
+        </div>
+
+        <div>
+        </div>
+
+    </div>
+
+
+
+    <script src="/js/blackjack.js"></script>
+</body>
