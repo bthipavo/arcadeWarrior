@@ -5,7 +5,15 @@
     src: url("../fonts/PressStart2P.ttf") format('truetype');
 }
 
-body {
+
+/* #bjack {
+    padding-top: 40px;
+    margin: auto;
+    padding-bottom: 40px;
+} */
+
+div#mainDiv {
+    background-image: url(../img/green.jpg);
     padding-top: 40px;
     margin: auto;
     padding-bottom: 40px;
@@ -59,7 +67,7 @@ html {
 } */
 
 body {
-    background-image: url(../Images/green.jpg);
+    /* background-image: url(../img/green.jpg); */
     font-family: "PressStart2P.ttf", Arial, sans-serif;
     color: #ffffff;
     text-shadow: 2px 2px #222222;
@@ -108,6 +116,7 @@ body {
 
 #btnhit {
     font-family: "PressStart2P.ttf", Arial, sans-serif;
+    font-size: 25px;
     color: #ffffff;
     border-width: thin;
     text-shadow: 2px 3px #222222;
@@ -121,6 +130,7 @@ body {
 
 #btndouble {
     font-family: "PressStart2P.ttf", Arial, sans-serif;
+    font-size: 25px;
     color: #ffffff;
     border-width: thin;
     text-shadow: 2px 3px #222222;
@@ -274,13 +284,14 @@ div#message {
     font-size: 25px;
     border-width: thin !important;
     border: solid 1px #ffffff;
-    border-radius: 15px;
+    border-radius: 25px;
 }
 
 #btnhold {
     background-color: green;
     border-radius: 15px;
     border-width: thin;
+    font-size: 25px;
 }
 
 #btnhit {
@@ -307,7 +318,7 @@ div#message {
     border-width: thin;
     border-radius: 15px;
     margin-left: 10px;
-    font-size: 15px;
+    font-size: 25px;
 }
 
 #maxbet:hover {
@@ -332,4 +343,11 @@ div#message {
     font-size: 30px;
     padding: 20px;
     text-align: center;
+}
+
+
+/*Bjack Card Text*/
+
+#bjinstructions {
+    color: #222222;
 }
