@@ -1,4 +1,4 @@
-const game = new Phaser.Game(1250,570,Phaser.CANVAS,'gameDiv');
+const game = new Phaser.Game(800,600,Phaser.CANVAS,'gameDiv');
 let spacefield;
 let backgroundv;
 let player;
@@ -13,14 +13,14 @@ let scoreText;
 let winText;
 let mainState = {
 	preload: () => {
-		game.load.image('starfield', "assets/starfield.png")
-		game.load.image('player', "assets/ship1.png");
-		game.load.image('player1', "assets/ship1.png");
-		game.load.image('bullet',"assets/bullet4.png")
-		game.load.image('enemy', "assets/Ghost1.png")
+		game.load.image('starfield', "/img/starfield.png")
+		game.load.image('player', "/img/ship1.png");
+		game.load.image('player1', "/img/ship1.png");
+		game.load.image('bullet',"/img/bullet4.png")
+		game.load.image('enemy', "/img/Ghost1.png")
 	},
 	create: () => {
-		spacefield = game.add.tileSprite(0,0,1250,570,'starfield');
+		spacefield = game.add.tileSprite(0,0,800,400,'starfield');
 		backgroundv = 5;
 
 			player = game.add.sprite(game.world.centerX -40,game.world.centerY + 170, 'player')
@@ -44,7 +44,7 @@ let mainState = {
 
 			createEnemies();
 
-			scoreText = game.add.text(0,500,'Score:',{font: '32px Arial', fill: '#fff'});
+			scoreText = game.add.text(0,250,'Score:',{font: '32px Arial', fill: '#fff'});
 			winText = game.add.text(game.world.centerX -120,game.world.centerY, 'You Win!', {font:'60px Arial', fill:'#fff'});
 			winText.visible = false;
 			looseText = game.add.text(game.world.centerX -120,game.world.centerY, 'You Lose!', {font:'60px Arial', fill:'#FF0000'});
@@ -80,9 +80,9 @@ let mainState = {
 			player.position.x = 1
 		} else {
 
-			if(player.position.x >= 1160){
+			if(player.position.x >= 715){
 				console.log("going off to the right " +player.position.x)
-				player.position.x = 1159
+				player.position.x = 714
 			}
 	}
 		// console.log("player position " +player.position.x)
