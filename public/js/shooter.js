@@ -103,7 +103,7 @@ function fireBullet(){
 
 function createEnemies(){
 	for(var y = 0; y< 4; y++){
-		for(var x = 0; x < 10; x++){
+		for(var x = 0; x < 5; x++){
 			let enemy = enemies.create(x*90,y*70,'enemy');
 			enemy.anchor.setTo(0.5,0.5);
 		}
