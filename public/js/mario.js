@@ -12,8 +12,8 @@
    gameScene.init = function() {
         this.playerSpeed = 2
         this.enemySpeed = 2
-        this.enemyMaxX = 800
-        this.enemyMinX = 0
+        this.enemyMaxX = 890
+        this.enemyMinX = -90
     }
 
     gameScene.preload = function()
@@ -71,6 +71,7 @@
         Phaser.Actions.Call(this.enemies.getChildren(), function(enemy) {
         enemy.speed = Math.random() * 2 + 1;
         }, this)
+        // this.runEnemies('toad')
 
         this.mario = this.add.group({
             key: 'mario',
@@ -88,12 +89,28 @@
         enemy.speed = Math.random() * 2 + 1;
         }, this)
 
+        this.bowser = this.add.group({
+            key: 'bowser',
+            repeat: 1,
+            setXY: {
+                x: 300,
+                y: 400,
+                stepX: 100,
+                stepY: 390}
+                })
+        Phaser.Actions.ScaleXY(this.bowser.getChildren(), -0.2, -0.2);
+
+        // set speeds
+        Phaser.Actions.Call(this.bowser.getChildren(), function(enemy) {
+        enemy.speed = Math.random() * 2 + 1;
+        }, this)
+
         this.koopa = this.add.group({
             key: 'koopa',
-            repeat: 2,
+            repeat: 4,
             setXY: {
                 x: 200,
-                y: 300,
+                y: 315,
                 stepX: 200,
                 stepY: 0}
                 })
@@ -101,7 +118,7 @@
 
         // set speeds
         Phaser.Actions.Call(this.koopa.getChildren(), function(enemy) {
-        enemy.speed = Math.random() * 2 + 1;
+        enemy.speed = 6;
         }, this)
 
         this.turtle = this.add.group({
@@ -110,20 +127,20 @@
             setXY: {
                 x: 200,
                 y: 175,
-                stepX: 200,
+                stepX: 300,
                 stepY: 0}
                 })
         Phaser.Actions.ScaleXY(this.turtle.getChildren(), -0.8, -0.8);
 
         // set speeds
         Phaser.Actions.Call(this.turtle.getChildren(), function(enemy) {
-        enemy.speed = Math.random() * 2 + 1;
+        enemy.speed = 5;
         }, this)
     }
 
     // gameScene.runEnemies = function(car) {
-    //     this.enemies = this.add.group({
-    //             key: car,
+    //     this.enemies2 = this.add.group({
+    //             key: "'"+car+"'",
     //             repeat: 2,
     //             setXY: {
     //                 x: 100,
@@ -133,10 +150,10 @@
     //                 })
 
     //         // scale enemies
-    //         Phaser.Actions.ScaleXY(this.enemies.getChildren(), -0.2, -0.2);
+    //         Phaser.Actions.ScaleXY(this.enemies2.getChildren(), -0.2, -0.2);
 
     //         // set speeds
-    //         Phaser.Actions.Call(this.enemies.getChildren(), function(enemy) {
+    //         Phaser.Actions.Call(this.enemies2.getChildren(), function(enemy) {
     //         enemy.speed = Math.random() * 2 + 1;
     //         }, this)
 
@@ -182,6 +199,9 @@
         let turtle = this.turtle.getChildren();
         let numTurtle = turtle.length;
 
+        let bowser = this.bowser.getChildren();
+        let numBowser = bowser.length;
+
         for (let i = 0; i < numEnemies; i++) {
             enemies[i].x += enemies[i].speed
             if (enemies[i].x >= this.enemyMaxX && enemies[i].speed >0) {
@@ -206,6 +226,10 @@
                 // }, this)
                 mario[i].x += mario[i].speed
             }
+            if (Phaser.Geom.Intersects.RectangleToRectangle(this.player.getBounds(), mario[i].getBounds())) {
+            this.gameOver();
+            
+            }
         }
 
         for (let i = 0; i < numKoopa; i++) {
@@ -217,6 +241,25 @@
                 // }, this)
                 koopa[i].x += koopa[i].speed
             }
+            if (Phaser.Geom.Intersects.RectangleToRectangle(this.player.getBounds(), koopa[i].getBounds())) {
+            this.gameOver();
+            
+            }
+        }
+
+        for (let i = 0; i < numBowser; i++) {
+            bowser[i].x -= bowser[i].speed
+            if (bowser[i].x <= this.enemyMinX && bowser[i].speed >0) {
+                bowser[i].x = this.enemyMaxX
+                // Phaser.Actions.Call(this.enemies.getChildren(), function(enemy) {
+                // enemy.speed = Math.random() * 2 + 1;
+                // }, this)
+                bowser[i].x -= bowser[i].speed
+            }
+            if (Phaser.Geom.Intersects.RectangleToRectangle(this.player.getBounds(), bowser[i].getBounds())) {
+            this.gameOver();
+            
+            }
         }
 
         for (let i = 0; i < numTurtle; i++) {
@@ -227,6 +270,10 @@
                 // enemy.speed = Math.random() * 2 + 1;
                 // }, this)
                 turtle[i].x -= turtle[i].speed
+            }
+            if (Phaser.Geom.Intersects.RectangleToRectangle(this.player.getBounds(), turtle[i].getBounds())) {
+            this.gameOver();
+            
             }
         }
 
