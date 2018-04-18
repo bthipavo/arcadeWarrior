@@ -2,6 +2,7 @@ const game = new Phaser.Game(800,600,Phaser.CANVAS,'gameDiv');
 let spacefield;
 let backgroundv;
 let player;
+// let player1;
 let cursors;
 let bullets;
 let bulletTime = 0;
@@ -14,14 +15,16 @@ let mainState = {
 	preload: () => {
 		game.load.image('starfield', "/img/starfield.png")
 		game.load.image('player', "/img/ship1.png");
+		game.load.image('player1', "/img/ship1.png");
 		game.load.image('bullet',"/img/bullet4.png")
 		game.load.image('enemy', "/img/Ghost1.png")
 	},
 	create: () => {
-		spacefield = game.add.tileSprite(0,0,1250,570,'starfield');
+		spacefield = game.add.tileSprite(0,0,800,600,'starfield');
 		backgroundv = 5;
 
 			player = game.add.sprite(game.world.centerX -40,game.world.centerY + 170, 'player')
+			// player1 = game.add.sprite(game.world.centerX +570,game.world.centerY +170, 'player1')
 			game.physics.enable(player,Phaser.Physics.ARCADE);
 			cursors = game.input.keyboard.createCursorKeys();
 			bullets = game.add.group();
@@ -41,14 +44,16 @@ let mainState = {
 
 			createEnemies();
 
-			scoreText = game.add.text(0,500,'Score:',{font: '32px Arial', fill: '#fff'});
-			winText = game.add.text(game.world.centerX,game.world.centerY, 'You Win!', {font:'32px Arial', fill:'#fff'});
+			scoreText = game.add.text(0,525,'Score:',{font: '32px Arial', fill: '#fff'});
+			winText = game.add.text(game.world.centerX -120,game.world.centerY, 'You Win!', {font:'60px Arial', fill:'#fff'});
 			winText.visible = false;
-
+			looseText = game.add.text(game.world.centerX -120,game.world.centerY, 'You Lose!', {font:'60px Arial', fill:'#FF0000'});
+			looseText.visible = false;
 	},
 	update: () => {
 
 		game.physics.arcade.overlap(bullets,enemies,collisionHandler,null,this);
+		game.physics.arcade.overlap(enemies,player,collision,null,this);
 
 		player.body.velocity.x = 0;
 
@@ -65,10 +70,24 @@ let mainState = {
 
 		scoreText.text = 'Score:' + score;
 
-		if(score == 4000){
+		if(score == 2000){
 			winText.visible = true;
 			scoreText.visible = false;
+			player.kill();
+			bullet.kill();
 		}
+
+		if(player.position.x <= 0){
+			console.log("going of to the left " + player.position.x)
+			player.position.x = 1
+		} else {
+
+			if(player.position.x >= 715){
+				console.log("going off to the right " +player.position.x)
+				player.position.x = 714
+			}
+	}
+		// console.log("player position " +player.position.x)
 	}
 }
 
@@ -86,7 +105,7 @@ function fireBullet(){
 
 function createEnemies(){
 	for(var y = 0; y< 4; y++){
-		for(var x = 0; x < 10; x++){
+		for(var x = 0; x < 5; x++){
 			let enemy = enemies.create(x*90,y*70,'enemy');
 			enemy.anchor.setTo(0.5,0.5);
 		}
@@ -106,6 +125,12 @@ function collisionHandler(bullet, enemy){
 	bullet.kill();
 	enemy.kill();
 	score += 100;
+}
+
+function collision(player, enemy){
+	enemies.kill();
+	player.kill();
+	looseText.visible = true;
 }
 	
 game.state.add('mainState', mainState);

@@ -27,6 +27,10 @@ router.get('/galaga', function(req, res){
 	res.render('galaga');
 });
 
+router.get('/blackjack', function(req, res){
+	res.render('blackjack');
+});
+
 // Register User
 router.post('/register', function(req, res){
 	var name = req.body.name;
