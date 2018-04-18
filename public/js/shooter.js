@@ -20,7 +20,7 @@ let mainState = {
 		game.load.image('enemy', "/img/Ghost1.png")
 	},
 	create: () => {
-		spacefield = game.add.tileSprite(0,0,800,400,'starfield');
+		spacefield = game.add.tileSprite(0,0,800,600,'starfield');
 		backgroundv = 5;
 
 			player = game.add.sprite(game.world.centerX -40,game.world.centerY + 170, 'player')
@@ -44,7 +44,7 @@ let mainState = {
 
 			createEnemies();
 
-			scoreText = game.add.text(0,250,'Score:',{font: '32px Arial', fill: '#fff'});
+			scoreText = game.add.text(0,525,'Score:',{font: '32px Arial', fill: '#fff'});
 			winText = game.add.text(game.world.centerX -120,game.world.centerY, 'You Win!', {font:'60px Arial', fill:'#fff'});
 			winText.visible = false;
 			looseText = game.add.text(game.world.centerX -120,game.world.centerY, 'You Lose!', {font:'60px Arial', fill:'#FF0000'});
@@ -70,9 +70,11 @@ let mainState = {
 
 		scoreText.text = 'Score:' + score;
 
-		if(score == 4000){
+		if(score == 2000){
 			winText.visible = true;
 			scoreText.visible = false;
+			player.kill();
+			bullet.kill();
 		}
 
 		if(player.position.x <= 0){
@@ -128,6 +130,7 @@ function collisionHandler(bullet, enemy){
 function collision(player, enemy){
 	enemies.kill();
 	player.kill();
+	bullet.kill();
 	looseText.visible = true;
 }
 	
