@@ -130,7 +130,6 @@ function collisionHandler(bullet, enemy){
 function collision(player, enemy){
 	enemies.kill();
 	player.kill();
-	bullet.kill();
 	looseText.visible = true;
 }
 	
