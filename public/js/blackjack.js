@@ -67,8 +67,11 @@ function dealNew() {
     message.innerHTML = "Good Luck!<br>Current bet is $" + betvalue;
     document.getElementById('mybet').disabled = true;
     document.getElementById('maxbet').disabled = true;
+    document.getElementById('btnreset').disabled = true;
     deal();
     document.getElementById('btndeal').style.display = 'none';
+    document.getElementById('btnreset').style.display = 'block';
+
 }
 //shuffles the deck of cards after 40 cards have been used
 function redeal() {
@@ -164,8 +167,11 @@ function playend() {
     document.getElementById('cover').style.display = 'none';
     document.getElementById('myactions').style.display = 'none';
     document.getElementById('btndeal').style.display = 'block';
+    document.getElementById('btnreset').style.display = 'block';
     document.getElementById('mybet').disabled = false;
     document.getElementById('maxbet').disabled = false;
+    document.getElementById('btnreset').disabled = false;
+
     message.innerHTML = "Game Over<br>";
     var payoutJack = 1;
     var dealervalue = checktotal(dealerCard);
