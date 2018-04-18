@@ -122,7 +122,7 @@ function descend(){
 }
 
 function collisionHandler(bullet, enemy){
-	bullet.kill();
+	bullet.visible = false;
 	enemy.kill();
 	score += 100;
 }
@@ -130,7 +130,6 @@ function collisionHandler(bullet, enemy){
 function collision(player, enemy){
 	enemies.kill();
 	player.kill();
-	bullet.kill();
 	looseText.visible = true;
 }
 	
