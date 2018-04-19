@@ -332,8 +332,6 @@ div#message {
     margin-top: 4px;
 }
 
-/*total dollars header*/
-
 .total {
     font-size: 30px;
     font-family: "PressStart2P.ttf", Arial, sans-serif;
@@ -342,8 +340,6 @@ div#message {
     padding: 20px;
     text-align: center;
 }
-
-/*Bjack Card Text*/
 
 #bjinstructions {
     color: #222222;
