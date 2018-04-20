@@ -31,6 +31,7 @@
         this.load.image('turtle', '/img/turtleShells.png');
         this.load.image('pipe', '/img/pipe.png');
         this.load.image('win', '/img/winMessage.jpg')
+        this.load.image('bullet', '/img/marioBullet.png')
     }
 
     gameScene.create = function ()
@@ -134,15 +135,15 @@
         }, this)
 
         this.turtle = this.add.group({
-            key: 'turtle',
-            repeat: 2,
+            key: 'bullet',
+            repeat: 3,
             setXY: {
                 x: 200,
                 y: 200,
-                stepX: 300,
+                stepX: 370,
                 stepY: 0}
                 })
-        Phaser.Actions.ScaleXY(this.turtle.getChildren(), -0.85, -0.85);
+        Phaser.Actions.ScaleXY(this.turtle.getChildren(), -0.6, -0.6);
 
         // set speeds
         Phaser.Actions.Call(this.turtle.getChildren(), function(enemy) {
