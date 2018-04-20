@@ -10,7 +10,7 @@
     let game = new Phaser.Game(config);
 
    gameScene.init = function() {
-        this.playerSpeed = 2
+        this.playerSpeed = 2.7
         this.enemySpeed = 2
         this.enemyMaxX = 890
         this.enemyMinX = -90
@@ -29,6 +29,8 @@
         this.load.image('bush', '/img/berry_bush.png');
         this.load.image('player2', '/img/koomba.png');
         this.load.image('turtle', '/img/turtleShells.png');
+        this.load.image('pipe', '/img/pipe.png');
+        this.load.image('win', '/img/winMessage.jpg')
     }
 
     gameScene.create = function ()
@@ -36,7 +38,7 @@
         let background = this.add.sprite(0, 0, 'bg');
         cursors = game.input.keyboard.createCursorKeys()
 
-
+        this.isPlayerAlive = true;
 
         background.setOrigin(0, 0);
 
@@ -59,30 +61,40 @@
             repeat: 2,
             setXY: {
                 x: 100,
-                y: 110,
+                y: 120,
                 stepX: 100,
                 stepY: 390}
                 })
 
         // scale enemies
-        Phaser.Actions.ScaleXY(this.enemies.getChildren(), -0.2, -0.2);
+        Phaser.Actions.ScaleXY(this.enemies.getChildren(), -0.3, -0.3);
 
         // set speeds
         Phaser.Actions.Call(this.enemies.getChildren(), function(enemy) {
         enemy.speed = Math.random() * 2 + 1;
         }, this)
         // this.runEnemies('toad')
+        this.pipe = this.add.group({
+            key: 'pipe',
+            repeat: 4,
+            setXY: {
+                x: 100,
+                y: 50,
+                stepX: 150,
+                stepY: 0}
+                })
+        Phaser.Actions.ScaleXY(this.pipe.getChildren(), -0.8, -0.8);
 
         this.mario = this.add.group({
             key: 'mario',
             repeat: 2,
             setXY: {
                 x: 500,
-                y: 100,
+                y: 120,
                 stepX: 100,
                 stepY: 390}
                 })
-        Phaser.Actions.ScaleXY(this.mario.getChildren(), -0.2, -0.2);
+        Phaser.Actions.ScaleXY(this.mario.getChildren(), -0.3, -0.3);
 
         // set speeds
         Phaser.Actions.Call(this.mario.getChildren(), function(enemy) {
@@ -94,11 +106,11 @@
             repeat: 1,
             setXY: {
                 x: 300,
-                y: 400,
+                y: 410,
                 stepX: 100,
                 stepY: 390}
                 })
-        Phaser.Actions.ScaleXY(this.bowser.getChildren(), -0.2, -0.2);
+        Phaser.Actions.ScaleXY(this.bowser.getChildren(), -0.4, -0.4);
 
         // set speeds
         Phaser.Actions.Call(this.bowser.getChildren(), function(enemy) {
@@ -110,15 +122,15 @@
             repeat: 4,
             setXY: {
                 x: 200,
-                y: 315,
+                y: 313,
                 stepX: 200,
                 stepY: 0}
                 })
-        Phaser.Actions.ScaleXY(this.koopa.getChildren(), -0.2, -0.2);
+        Phaser.Actions.ScaleXY(this.koopa.getChildren(), -0.4, -0.4);
 
         // set speeds
         Phaser.Actions.Call(this.koopa.getChildren(), function(enemy) {
-        enemy.speed = 6;
+        enemy.speed = 5;
         }, this)
 
         this.turtle = this.add.group({
@@ -126,11 +138,11 @@
             repeat: 2,
             setXY: {
                 x: 200,
-                y: 175,
+                y: 200,
                 stepX: 300,
                 stepY: 0}
                 })
-        Phaser.Actions.ScaleXY(this.turtle.getChildren(), -0.8, -0.8);
+        Phaser.Actions.ScaleXY(this.turtle.getChildren(), -0.85, -0.85);
 
         // set speeds
         Phaser.Actions.Call(this.turtle.getChildren(), function(enemy) {
@@ -161,16 +173,25 @@
 
     gameScene.update = function() {
         // console.log("pointer" + this.input.activePointer.isDown)
+        if (!this.isPlayerAlive) {
+        return;
+      }
         if (cursors.up.isDown) {
 
     // player walks
             this.player.y -= this.playerSpeed;
+            if (this.player.y<=20) {
+                this.player.y = 20
+            }
             console.log("increase" + this.player.x)
         }
         if (cursors.down.isDown) {
 
     // player walks
             this.player.y += this.playerSpeed;
+            if (this.player.y>=580) {
+                this.player.y = 580
+            }
             console.log("increase" + this.player.x)
         }
 
@@ -178,12 +199,18 @@
 
     // player walks
             this.player.x += this.playerSpeed;
+            if (this.player.x>=780) {
+                this.player.x = 780
+            }
             console.log("increase" + this.player.x)
         }
         if (cursors.left.isDown) {
 
     // player walks
             this.player.x -= this.playerSpeed;
+            if (this.player.x<=20) {
+                this.player.x = 20
+            }
             console.log("increase" + this.player.x)
         }
 
@@ -201,6 +228,17 @@
 
         let bowser = this.bowser.getChildren();
         let numBowser = bowser.length;
+
+        let pipe = this.pipe.getChildren();
+        let numPipe = pipe.length;
+
+        for (let i = 0; i < numPipe; i++) {
+            if (Phaser.Geom.Intersects.RectangleToRectangle(this.player.getBounds(), pipe[i].getBounds())) {
+            this.winGame();
+        }
+        
+            
+            }
 
         for (let i = 0; i < numEnemies; i++) {
             enemies[i].x += enemies[i].speed
@@ -224,7 +262,7 @@
                 // Phaser.Actions.Call(this.enemies.getChildren(), function(enemy) {
                 // enemy.speed = Math.random() * 2 + 1;
                 // }, this)
-                mario[i].x += mario[i].speed
+                mario[i].x += mario[i].speed 
             }
             if (Phaser.Geom.Intersects.RectangleToRectangle(this.player.getBounds(), mario[i].getBounds())) {
             this.gameOver();
@@ -279,10 +317,28 @@
 
         gameScene.gameOver = function() {
         console.log("hello")
+            this.isPlayerAlive = false;
         // shake the camera
+            this.cameras.main.shake(500);
+
+            this.time.delayedCall(250, function() {
+            this.cameras.main.fade(250);
+          }, [], this);
+
+          // restart game
           this.time.delayedCall(500, function() {
             this.scene.manager.bootScene(this);
-        }, [], this);
+          }, [], this);
+
+          // reset camera effects
+          this.time.delayedCall(600, function() {
+            this.cameras.main.resetFX();
+  }, [], this);
+        }
+
+        gameScene.winGame = function() {
+            console.log("you win!")
+            this.add.image(700, 350, 'win')
         }
 
     }
