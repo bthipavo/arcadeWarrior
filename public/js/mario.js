@@ -23,7 +23,7 @@
         this.load.image('player', '/img/mark.jpg');
         this.load.image('red', '/img/ball.png');
         this.load.image('mario', '/img/mario.png');
-        this.load.image('bowser', '/img/bowser.jpg');
+        this.load.image('bowser', '/img/bowser.png');
         this.load.image('koopa', '/img/koopa.png');
         this.load.image('toad', '/img/toad.png');
         this.load.image('bush', '/img/berry_bush.png');
