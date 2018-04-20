@@ -122,11 +122,11 @@
             repeat: 4,
             setXY: {
                 x: 200,
-                y: 313,
+                y: 320,
                 stepX: 200,
                 stepY: 0}
                 })
-        Phaser.Actions.ScaleXY(this.koopa.getChildren(), -0.4, -0.4);
+        Phaser.Actions.ScaleXY(this.koopa.getChildren(), -0.5, -0.5);
 
         // set speeds
         Phaser.Actions.Call(this.koopa.getChildren(), function(enemy) {
@@ -338,7 +338,7 @@
 
         gameScene.winGame = function() {
             console.log("you win!")
-            this.add.image(700, 350, 'win')
+            this.add.image(400, 350, 'win')
         }
 
     }
