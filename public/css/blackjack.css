@@ -1,40 +1,21 @@
-/*@font-face to load 8bit font*/
-
 @font-face {
     font-family: "PressStart2P.ttf";
     src: url("../fonts/PressStart2P.ttf") format('truetype');
 }
 
-
-/* #bjack {
-    padding-top: 40px;
-    margin: auto;
-    padding-bottom: 40px;
-} */
-
 div#mainDiv {
     background-image: url(../img/green.jpg);
     padding-top: 40px;
-    margin: auto;
     padding-bottom: 40px;
 }
-
-
-/* @media (max-width: 980px) {
-    body {
-        padding-top: 0;
-    }
-} */
-
-
-/*style the font*/
 
 h1 {
     font-family: "PressStart2P.ttf", Arial, sans-serif;
     color: #ffffff;
-    padding: 20px;
     text-align: center;
     text-shadow: 2px 2px #222222;
+    font-size: 50px !important;
+    margin: 0 !important;
 }
 
 h4 {
@@ -42,32 +23,13 @@ h4 {
     text-shadow: 2px 2px #222222;
 }
 
-
-/*center the start button*/
-
 div#start {
     display: flex;
     justify-content: center;
+    margin-top: 20px;
 }
 
-
-/*add 8-bit font*/
-
-html {
-    width: 100%;
-    height: 100%;
-}
-
-
-/*testing the change*/
-
-
-/* .fluid.col-lg-12 {
-    background-image: url(../img/green.jpg);
-} */
-
-body {
-    /* background-image: url(../img/green.jpg); */
+#bjackspecs {
     font-family: "PressStart2P.ttf", Arial, sans-serif;
     color: #ffffff;
     text-shadow: 2px 2px #222222;
@@ -77,7 +39,11 @@ body {
 
 #mybet {
     font-size: 30px;
+    border: solid;
+    border-color: #ffffff;
     font-weight: 100;
+    width: auto;
+    border-width: unset;
     border-radius: 10px;
     text-align: center;
     font-family: "PressStart2P.ttf", Arial, sans-serif;
@@ -88,6 +54,20 @@ body {
     color: #ffffff;
     text-shadow: 2px 3px #222222;
     border: solid 1px #ffffff;
+}
+
+#btnreset {
+    border-radius: 10px;
+    font-size: 25px;
+    cursor: pointer;
+    padding-top: 1px;
+    text-align: center;
+    float: right;
+    font-family: "PressStart2P.ttf", Arial, sans-serif;
+    color: #ffffff;
+    text-shadow: 2px 3px #222222;
+    border: solid 1px #ffffff;
+    background-color: #26a69a;
 }
 
 #btnstart {
@@ -152,9 +132,12 @@ body {
 #output {
     font-size: 1.5em;
     padding: 10px;
-    /* padding-left: 5px;
+    font-family: "PressStart2P.ttf", Arial, sans-serif;
+    color: #ffffff;
+    text-shadow: 3px 1px #222222;
+    padding-left: 5px;
     margin-left: 6px;
-    margin-top: 11px; */
+    margin-top: 11px;
 }
 
 #btndeal,
@@ -241,9 +224,6 @@ element.style {
     color: red;
 }
 
-
-/*card suits*/
-
 .hearts .suit::after {
     content: '\2665';
 }
@@ -270,9 +250,11 @@ element.style {
 #message {
     height: 90px;
     color: #ffe919;
-    margin-bottom: 7px;
+    font-family: "PressStart2P.ttf", Arial, sans-serif;
+    text-shadow: 1px 1px #222222;
     font-size: 30px;
     text-align: center;
+    padding-top: 25px;
 }
 
 div#message {
@@ -284,19 +266,19 @@ div#message {
     font-size: 25px;
     border-width: thin !important;
     border: solid 1px #ffffff;
-    border-radius: 25px;
+    border-radius: 10px;
 }
 
 #btnhold {
     background-color: green;
-    border-radius: 15px;
+    border-radius: 10px;
     border-width: thin;
     font-size: 25px;
 }
 
 #btnhit {
     background-color: red;
-    border-radius: 15px;
+    border-radius: 10px;
     border-width: thin;
 }
 
@@ -309,14 +291,14 @@ div#message {
 
 #btndouble {
     background-color: blue;
-    border-radius: 15px;
+    border-radius: 10px;
     border-width: thin;
 }
 
 #maxbet {
     background-color: red;
     border-width: thin;
-    border-radius: 15px;
+    border-radius: 10px;
     margin-left: 10px;
     font-size: 25px;
 }
@@ -330,23 +312,22 @@ div#message {
 #btnstart {
     background-color: #12bdfd;
     color: #ffffff;
+    font-family: "PressStart2P.ttf", Arial, sans-serif;
+    text-shadow: 3px 1px #222222;
     border-width: thin;
     font-size: 25px;
-    border-radius: 15px;
+    border-radius: 10px;
     margin-top: 4px;
 }
 
-
-/*total dollars header*/
-
 .total {
     font-size: 30px;
+    font-family: "PressStart2P.ttf", Arial, sans-serif;
+    color: #ffffff;
+    text-shadow: 3px 1px #222222;
     padding: 20px;
     text-align: center;
 }
-
-
-/*Bjack Card Text*/
 
 #bjinstructions {
     color: #222222;

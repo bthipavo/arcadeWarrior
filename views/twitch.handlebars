@@ -1,23 +1,29 @@
-<div class="container twitcher">
-	<div id="header" class='text-center'>
-		<a href="https://www.twitch.tv/" target='_blank'>
-		<img id='img-header' src="https://www.leviathyn.com/wp-content/uploads/2014/01/twitchfeaturedimg.png">
-		</a> 
-	</div>
+<div id="header" class='text-center'>
+	<a href="https://www.twitch.tv/" target='_blank'>
+    <img id='img-header' src="/img/twitchapi.png"></a> 
+</div> 
 
-	<div class="mb-2">
-		<button id='btn-all' class='button'>All</button>
-		<button id='btn-online' class='button'>Online</button>
-		<button id='btn-offline' class='button'>Offline</button>
-	</div>
 
-	<p>Tracking Channels</p>
-	
-	<div class='streams' id='streams-online'></div>
-	<div class='streams' id='streams-offline'></div>
-	<br>
-	<div id="footer" class='text-center'></div>
+<div id="idSearchBox" class="row">
+	<form class="form-inline">
+		<div class="input-group">
+			<input id="idSearch" type="text" class="form-control" placeholder="Search twitch" />
+		</div>
+			<button id="idButton"class="btn btn-primary" type="button">Go!</button>
+	</form>
 </div>
 
+<div id="idResult">
+    <div id="idName" class="container"></div>
+</div
 
-
+<div class="container">
+    <div class="col-sm-2 col-xs-2"></div>
+    <div class="col-sm-8 col-xs-8">
+      <div id="idLi">
+        <ul id="idListe">
+        </ul>
+      </div>
+    </div>
+    <div class="col-sm-2 col-xs-2"></div>
+</div>

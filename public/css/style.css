@@ -1,263 +1,211 @@
-    .arcadeLogo {
-        margin-left: 60px;
-    }
-    
-    #nav-mobile {
-        margin-right: 60px;
-    }
-    
-    .banner {
-        background: url(../img/arcade_banner_2.png);
-        background-repeat: no-repeat;
-        background-position: center;
-        /*  background-size: cover;
-  */
-        height: 100px;
-    }
-    
-    h1 {
-        font-size: 2.2rem;
-    }
-    
-    .footer {
-        background: url(../img/arcadebg.jpg);
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-        height: 700px;
-        border-top: 3px solid #ffd180;
-        border-bottom: 5px solid #ffd180;
-    }
-/*    
-    #froggerjpg {
-        background: url(../img/Frogger.jpg); 
-        border: 3px solid #ffd180;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-        width: 350px;
-        height: 250px;
-        margin-top: 50px;
-        margin-left: 60px;
-        margin-right: 10px;
-    }*/
-/*
-    #galagajpg {
-        background: url(../img/spaceInvader.jpg);
-        border: 3px solid #ffd180;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-        width: 350px;
-        height: 250px;
-        margin-top: 50px;
-        margin-left: 10px;
-        margin-right: 60px;
-    }*/
-    
-    #twitchjpg{
-        background: url(https://wdexplorer.com/wp-content/uploads/MattGravish_twitch_logo_animation.gif);
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-        height: 450px;
-        border-top: 5px solid #616161;
-        margin-top: 25px;
-    }
-    
-    #mainjpg {
-        background: url(http://78.media.tumblr.com/e46b6701c1b90eb580cd19697f967b72/tumblr_n3g2kyp0z71skb43vo1_500.gif);
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-        height: 350px;
-        border-top: 3px solid #ffd180;
-        border-bottom: 3px solid #ffd180;
-        margin-top: 50px;
+.arcadeLogo {
+    margin-left: 60px;
+}
 
-    }
+#nav-mobile {
+    margin-right: 60px;
+}
 
-    #pacman {
-        background: url(http://i.imgur.com/4sQwhiF.gif);
-        height: 200px;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-        border-top: 3px solid #ffd180;
-    }
+.banner {
+    background: url(../img/arcade_banner_2.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100px;
+}
+
+h1 {
+    font-size: 2.2rem;
+}
+
+.footer {
+    background: url(../img/arcadebg.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 700px;
+    border-top: 3px solid #ffd180;
+    border-bottom: 5px solid #ffd180;
+}
+
+#twitchjpg{
+    background: url(https://wdexplorer.com/wp-content/uploads/MattGravish_twitch_logo_animation.gif);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 450px;
+    border-top: 5px solid #616161;
+    margin-top: 25px;
+}
+
+#mainjpg {
+    background: url(http://78.media.tumblr.com/e46b6701c1b90eb580cd19697f967b72/tumblr_n3g2kyp0z71skb43vo1_500.gif);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 350px;
+    border-top: 3px solid #ffd180;
+    border-bottom: 3px solid #ffd180;
+    margin-top: 50px;
+
+}
+
+#pacman {
+    background: url(http://i.imgur.com/4sQwhiF.gif);
+    height: 200px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-top: 3px solid #ffd180;
+}
+
+.loginSection {
+    margin-left: 60px;
+}
+
+.registerSection {
+    margin-left: 60px;
+}
+
+.page-header {
+    margin-bottom: 0;
+    margin-top: 15px;
+    font-size: 25px;
+}
+
+.row {
+    margin-bottom: 0 !important;
+}
+
+#loginBtn {
+    margin-left: 53px;
+    margin-bottom: 25px;
+}
+
+#registerBtn {
+    margin-left: 53px;
+    margin-bottom: 25px;
+}
+
+.fluid {
+    padding: 0 !important;
+    background: url(https://media.giphy.com/media/FnnujYxijXoyc/giphy.gif);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+#dashboard {
     
-    .loginSection {
-        margin-left: 60px;
-    }
-    
-    .registerSection {
-        margin-left: 60px;
-    }
-    
-    .page-header {
-        margin-bottom: 0;
-        margin-top: 15px;
-        font-size: 25px;
-    }
-    
-    .row {
-        margin-bottom: 0 !important;
-    }
-    
-    #loginBtn {
-        margin-left: 53px;
-        margin-bottom: 25px;
-    }
-    
-    #registerBtn {
-        margin-left: 53px;
-        margin-bottom: 25px;
-    }
-    
-    .fluid {
-        padding: 0 !important;
-        background: url(https://media.giphy.com/media/FnnujYxijXoyc/giphy.gif);
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: cover;
-    }
-    
-/*    .card-image {
-        width: auto;
-        overflow: hidden;
-    }*/
-    
-    .card {
-        width: 300px;
-        height: 350px;
-        margin-left: 20px !important;
-        margin-top: 25px !important;
-        padding: 10px 10px 0px 10px;
-        background-color: #e0e0e0 !important;
-    }
+}
 
-    #BJ {
-        height: 212px !important;
-        border: 2px solid #616161;
-    }
-    
-    #galaga {
-        height: 212px !important;
-        border: 2px solid #616161;
-    }
+.card {
+    width: 300px;
+    height: 350px;
+    margin-left: 20px !important;
+    margin-top: 25px !important;
+    padding: 10px 10px 0px 10px;
+    background-color: #e0e0e0 !important;
+}
 
-    #frogger {
-        height: 212px !important;
-        border: 2px solid #616161;
-    }
+#BJ {
+    height: 212px !important;
+    border: 2px solid #616161;
+}
 
-    /*@font-face to load 8bit font*/
-    
-/*    @font-face {
-        font-family: 'PressStart2P.ttf', '8-Bit Madness';
-        src: url("../fonts/8-Bit Madness.ttf") format('truetype');
-        src: url("/fonts/pressstart2p-webfont.ttf");
-        font-style: normal;
-        font-weight: 100;
-    }*/
-    /*Header 'inner child'*/
-    
-    #indexHeader {
-        font-size: 54px;
-/*        font-family: "PressStart2P.ttf", "8-Bit Madness", fantasy, Arial, sans-serif;
-*/        text-shadow: -3px 2px #ff7d00;
- /*       margin-top: 8%;*/
-    }
+#galaga {
+    height: 212px !important;
+    border: 2px solid #616161;
+}
 
-    
-    nav ul a {
-        -webkit-transition: background-color .3s;
-        transition: background-color .3s;
-/*        font-size: 25px !important;
-*//*        font-family: fantasy;
-*/        color: #fff;
-        display: block;
-        padding: 0 15px;
-        cursor: pointer;
-        text-shadow: 1px 2px #222222;
-    }
-    /*heading above Frogger and Twitch*/
-    
-    h1#feature {
-/*        font-family: fantasy;
-*/        color: #ffa726;
-        text-align: center;
-        text-shadow: 2px 2px #222222
-    }
-    /*new releases header*/
-    
-    h3#new-releases {
-/*        font-family: fantasy;
-*/        color: #ffa726;
-        text-align: center;
-        text-shadow: 2px 2px #222222;
-    }
+#frogger {
+    height: 212px !important;
+    border: 2px solid #616161;
+}
 
-    canvas {
-        margin-left: 320px;
-        margin-top: 50px;
-        border: 10px solid #212121;
-        padding: 5px;
-    }
+#indexHeader {
+    font-size: 54px;
+    text-shadow: -3px 2px #ff7d00;
+}
 
-   /* LOGIN MODAL
-    ===================*/
 
-    #loginModal {
-        height: 320px;
-    }
+nav ul a {
+    -webkit-transition: background-color .3s;
+    transition: background-color .3s;
+    color: #fff;
+    display: block;
+    padding: 0 15px;
+    cursor: pointer;
+    text-shadow: 1px 2px #222222;
+}
 
-    #loginBtn {
-        margin-top: 25px;
-        background-color: #424242 !important;
-    }
+h1#feature {
+    color: #ffa726;
+    text-align: center;
+    text-shadow: 2px 2px #222222
+}
 
-    #password {
-        margin-bottom: 25px;
-    }
+h3#new-releases {
+    color: #ffa726;
+    text-align: center;
+    text-shadow: 2px 2px #222222;
+}
 
-    #modalBack {
-        background-color: #fff !important;
-    }
+canvas {
+    margin-left: 320px;
+    margin-top: 50px;
+    border: 10px solid #212121;
+    padding: 5px;
+}
 
-    #loginLink {
-        margin-top: 20px;
-    }
+/* LOGIN MODAL
+===================*/
 
-     /* REGISTRATION MODAL
-    =======================*/
+#loginModal {
+    height: 320px;
+}
 
-    
-     #RegistrationModal {
-        height: 600px;
-    }
+#loginBtn {
+    margin-top: 25px;
+    background-color: #424242 !important;
+}
 
-    .registerSection {
-        margin-top: 50px;
-        margin-right: 50px;
-    }
+#password {
+    margin-bottom: 25px;
+}
 
-/*    .page-header {
-        font-size: 35px;
-    }*/
+#modalBack {
+    background-color: #fff !important;
+}
 
-    #registerBtn {
-        margin-top: 50px;
-        background-color: #424242 !important;
-    }
+#loginLink {
+    margin-top: 20px;
+}
 
-     #registerLink {
-        margin-top: 35px;
-    }
+ /* REGISTRATION MODAL
+=======================*/
 
-    /*FLASH ALERTS*/
 
-    .alert {
-        text-align: center;
-        margin: 0 !important;
-    }
+ #RegistrationModal {
+    height: 600px;
+}
+
+.registerSection {
+    margin-top: 50px;
+    margin-right: 50px;
+}
+
+#registerBtn {
+    margin-top: 50px;
+    background-color: #424242 !important;
+}
+
+ #registerLink {
+    margin-top: 35px;
+}
+
+/*FLASH ALERTS*/
+
+.alert {
+    text-align: center;
+    margin: 0 !important;
+}

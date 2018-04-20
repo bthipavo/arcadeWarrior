@@ -1,54 +1,120 @@
-var channels = ["wedc517", "ninja", "overwatchleague", "riot games", "lck1", "rocketleague", "shroud", "lck_korea", "unune", "gotaga", "simmit1g", "sodapoppin", "tsm_myth", "starcraft", "drdisrespectlive", "cdnthe3rd", "pokimane", "tsm_daequan", "highdistortion"];
+var users = "users/";
+var streams = "streams/";
+var http = "https://wind-bow.gomix.me/twitch-api/";
+var stream;
+var search;
+var status;
+var channels = ["ninja","rocketleague", "shroud","summit1g", "sodapoppin", "tsm_myth", "starcraft", "drdisrespectlive", "cdnthe3rd", "pokimane", "tsm_daequan", "highdistortion"];;
+var channel;
+var logo;
 var streamsOnline = "";
 var streamsOffline = "";
 
-$(document).ready(function () {
+function onLoad() {
+    for (var i = 0; i < channels.length; i++) {
+        (function(i) {
 
-    for (i = 0; i < channels.length; i++) {
-        var twitchOnline = "https://wind-bow.glitch.me/twitch-api/streams/" + channels[i];
-        var twitchOffline = "https://wind-bow.glitch.me/twitch-api/channels/" + channels[i];
+            $.ajax({
+                headers: {
+                    Accept: "application/json",
+                    "Content-Type": "application/x-www-form-urlencoded"
+                },
+                dataType: 'jsonp',
+                url: http + streams + channels[i],
+                success: function(response1) {
+                    var r = response1;
+                    var stream = r.stream;
 
-        $.getJSON(twitchOnline, function (json) {
+                    $.ajax({
+                        headers: {
+                            Accept: "application/json",
+                            "Content-Type": "application/x-www-form-urlencoded"
+                        },
+                        dataType: 'jsonp',
+                        url: http + users + channels[i],
+                        success: function(response2) {
+                            var r2 = response2;
+                            var name = r2.display_name;
+                            var logo = r2.logo;
 
+                            neuesLi = document.createElement("li");
 
-            if (json["stream"] !== null) {
-                var result = "<a class='redirect' target='blank' href='" + json['stream']['channel']['url'] + "'><div class='stream'><img src='" + json['stream']['channel']['logo'] +
-                    "' alt='stream icon' class='preview m-2'>" + "<span class='channel-name'>" + json['stream']['channel']['display_name'] + "</span>" + " <br>" + json['stream']['channel']['status'] +
-                    "<span class='game'><br> casting " + json['stream']['channel']['game'] + "</span>" + 
-                    "<span class='status'><img class='red-dot' src='https://91b6be3bd2294a24b7b5-da4c182123f5956a3d22aa43eb816232.ssl.cf1.rackcdn.com/contentItem-290013-2844041-8c6v44yzypq7k-or.png'> " +
-                     json['stream']['viewers'] + " viewers</span>" + "</div></a>";
-                streamsOnline += result;
-                $("#streams-online").html(streamsOnline);
+                            if (stream != null && name != undefined) {
+                                neuesLi.innerHTML = "<div id='idChannels' class='jumbotron'><img target='_blank' src=" +
+                                    logo + " class='cLogo'><a href='https://www.twitch.tv/" + name + "' target='_blank'><h3 id='idName'>" +
+                                    name + "</h3></a><p id='idStatusC'>Currently Online</p><div id='idDot' style='background-color: green;'></div></div>";
+                            } else if (stream == null && name != undefined) {
+                                neuesLi.innerHTML = "<div id='idChannels' class='jumbotron'><img target='_blank' src=" +
+                                    logo + " class='cLogo'><a href='https://www.twitch.tv/" + name + "' target='_blank'><h3 id='idName'>" +
+                                    name + "</h3></a><p id='idStatusC'>Currently not Online</p><div id='idDot' style='background-color: red;'></div></div>";
+                            } else {
+                                neuesLi.innerHTML = "<div id='idChannels' class='jumbotron'><img target='_blank' src='https://zadroweb.com/wp-content/uploads/2013/07/page-not-found-300x270.jpg' class='cLogo'><h3 id='idName'>ERROR</h3></a><p id='idStatusC'>Channel " + channels[i] + " not found</p></div>";
+                            }
+                            $("#idListe").hide().append(neuesLi).fadeIn();
+                        }
+                    });
+                }
+            });
+        })(i);
+    };
+};
 
-            } else {
-                $.getJSON(json['_links']['channel'] + "?client_id=7otw8pi9b4pitf9z27yw0seu7xog2v&", function (data) {
-                    var result = "<a class='redirect' target='blank' href='" + data["url"] + "'><div class='stream'><img src='" + data['logo'] +
-                        "' alt='stream icon' class='preview m-2'>" + "<span class='channel-name'>" + data['display_name'] + "</span>" + " <br>" + data['status'] +
-                        "<span class='game'><br> last time casted " + data['game']  + "</span>" + "<span class='status'>Offline</span>" + "</div></a>";
-                    streamsOffline += result;
-                    $("#streams-offline").html(streamsOffline);
-                });
+function getApi() {
+    search = $("#idSearch").val();
 
-            }
-
-        });
-
+    if (search === "") {
+        return alert("What are you searching for?");
     }
 
-    $('#btn-offline').on("click", function() {
-        $("#streams-online").html("");
-        $("#streams-offline").html(streamsOffline);
+    $.ajax({
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        dataType: 'jsonp',
+        url: http + streams + search,
+        success: function(response1) {
+            var r = response1;
+            var stream = r.stream;
+
+            $.ajax({
+                headers: {
+                    Accept: "application/json",
+                    "Content-Type": "application/x-www-form-urlencoded"
+                },
+                dataType: 'jsonp',
+                url: http + users + search,
+                success: function(response2) {
+                    var r2 = response2;
+                    var name = r2.display_name;
+                    var logo = r2.logo;
+
+                    if (stream != null && name != undefined) {
+                        $("#idName").hide().html("<div id='idRes' class='jumbotron'><img target='_blank' src=" +
+                                          logo + " class='cLogo'><a href='https://www.twitch.tv/" + name + "' target='_blank'><h3 id='idName'>" +
+                                          name + "</h3></a><p id='idStatusC'>Currently Online</p><div id='idDot' style='background-color: green;'></div></div>").fadeIn();
+                    } 
+                    else if (stream == null && name != undefined) {
+                        $("#idName").hide().html("<div id='idRes' class='jumbotron'><img target='_blank' src=" +
+                                          logo + " class='cLogo'><a href='https://www.twitch.tv/" + name + "' target='_blank'><h3 id='idName'>" +
+                                          name + "</h3></a><p id='idStatusC'>Currently not Online</p><div id='idDot' style='background-color: red;'></div></div>").fadeIn();
+                    }
+                    else {
+                        $("#idName").hide().html("<div id='idRes' class='jumbotron'><img target='_blank' src='https://zadroweb.com/wp-content/uploads/2013/07/page-not-found-300x270.jpg' class='cLogo'><h3 id='idName'>ERROR</h3></a><p id='idStatusC'>Channel " + search + " not found</p></div>").fadeIn();
+                    }
+                }
+            });
+        }
     });
+}
 
-    $('#btn-online').on("click", function() {
-        $("#streams-offline").html("");
-        $("#streams-online").html(streamsOnline);
+
+$(document).ready(function searchButton() {
+    onLoad();
+    $("#idButton").on("click", getApi);
+    $("#idSearch").keypress(function(e) {
+        if (e.which == 13) {
+            $("#idButton").focus().click();
+        }
     });
-
-    $('#btn-all').on("click", function() {
-        $("#streams-online").html(streamsOnline);
-        $("#streams-offline").html(streamsOffline);
-    });
-
-
 });
