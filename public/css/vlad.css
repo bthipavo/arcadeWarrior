@@ -5,7 +5,7 @@
 #idLogo{
   border-radius: 25%;
   width: 5.5em;
-  hight: 5.5em;
+  height: 5.5em;
 }
 
 #idSearch{
@@ -14,6 +14,8 @@
   border: 1px solid gray;
   margin: 10px;
   background-color: #ffffff;
+  width: 200px;
+  margin-left: -50px;
 }
 
 #idResult{
@@ -23,7 +25,7 @@
 img.cLogo{
   border-radius: 25%;
   width: 5.5em;
-  hight: 5.5em;
+  height: 5.5em;
   float: left;
   margin-right: 0.5em;
 }
@@ -69,6 +71,8 @@ ul {
   transition: all 1s;
   margin: 10px;
   display: inline-block;
+  width: 140px;
+  height: 55px;
 }
 #vladContainer{
   background-color: #6341a5;
